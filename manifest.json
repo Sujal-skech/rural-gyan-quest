@@ -1,0 +1,19 @@
+{
+  "name": "EduQuest - Gamified Learning",
+  "short_name": "EduQuest",
+  "description": "Interactive STEM learning platform for rural Indian students",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff8dc",
+  "theme_color": "#ff6600",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["education", "games"],
+  "lang": "en-IN",
+  "orientation": "portrait-primary"
+}
