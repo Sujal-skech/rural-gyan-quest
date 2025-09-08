@@ -2,41 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Gamified Learning Platform for Rural India - Design System
+All colors MUST be HSL for consistency across light/dark modes.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Rural India inspired color palette */
+    --background: 48 100% 97%; /* Soft wheat cream */
+    --foreground: 20 14% 20%; /* Dark brown text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* Pure white cards */
+    --card-foreground: 20 14% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 20 14% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Saffron-inspired primary colors */
+    --primary: 24 100% 50%; /* Vibrant saffron orange */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+    --primary-light: 24 100% 85%; /* Light saffron for backgrounds */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Village green secondary colors */
+    --secondary: 120 40% 50%; /* Natural green */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 120 40% 90%; /* Light green backgrounds */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Earth tones */
+    --muted: 48 20% 95%; /* Very light beige */
+    --muted-foreground: 20 14% 40%; /* Medium brown */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 45 100% 60%; /* Golden yellow for highlights */
+    --accent-foreground: 20 14% 20%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Learning progress colors */
+    --success: 120 60% 50%; /* Bright green for correct answers */
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 45 100% 50%; /* Golden warning */
+    --warning-foreground: 20 14% 20%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 70% 55%; /* Soft red for errors */
+    --destructive-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    --border: 48 20% 90%; /* Light beige borders */
+    --input: 48 20% 95%; /* Input backgrounds */
+    --ring: 24 100% 50%; /* Focus rings match primary */
+
+    /* Gamification colors */
+    --xp-gold: 45 100% 50%; /* XP points color */
+    --level-purple: 270 50% 60%; /* Level indicators */
+    --streak-red: 0 70% 60%; /* Streak counters */
+
+    /* Gradients for visual appeal */
+    --gradient-primary: linear-gradient(135deg, hsl(24 100% 50%), hsl(45 100% 60%)); /* Saffron to gold */
+    --gradient-secondary: linear-gradient(135deg, hsl(120 40% 50%), hsl(140 40% 60%)); /* Green variations */
+    --gradient-background: linear-gradient(180deg, hsl(48 100% 97%), hsl(48 80% 93%)); /* Subtle background */
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(48 20% 98%)); /* Card depth */
+
+    /* Shadows for depth */
+    --shadow-card: 0 4px 20px hsl(20 14% 20% / 0.08);
+    --shadow-button: 0 2px 8px hsl(24 100% 50% / 0.25);
+    --shadow-elevated: 0 8px 32px hsl(20 14% 20% / 0.12);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 1rem; /* Rounded corners for friendly feel */
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +89,50 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 20 14% 4%; /* Dark brown background */
+    --foreground: 48 100% 97%; /* Light cream text */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 20 14% 8%; /* Darker brown cards */
+    --card-foreground: 48 100% 97%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 20 14% 8%;
+    --popover-foreground: 48 100% 97%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 24 100% 60%; /* Brighter saffron for dark mode */
+    --primary-foreground: 20 14% 4%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 120 30% 35%; /* Darker green for dark mode */
+    --secondary-foreground: 48 100% 97%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 20 14% 12%; /* Dark muted background */
+    --muted-foreground: 48 20% 65%; /* Light muted text */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 45 100% 70%; /* Brighter gold for dark mode */
+    --accent-foreground: 20 14% 4%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --success: 120 50% 45%; /* Darker success green */
+    --success-foreground: 48 100% 97%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --warning: 45 100% 60%; /* Adjusted warning for dark mode */
+    --warning-foreground: 20 14% 4%;
+
+    --destructive: 0 60% 50%; /* Darker red for dark mode */
+    --destructive-foreground: 48 100% 97%;
+
+    --border: 20 14% 15%; /* Dark borders */
+    --input: 20 14% 12%; /* Dark inputs */
+    --ring: 24 100% 60%; /* Bright focus rings */
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(24 100% 60%), hsl(45 100% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(120 30% 35%), hsl(140 30% 40%));
+    --gradient-background: linear-gradient(180deg, hsl(20 14% 4%), hsl(20 14% 6%));
+    --gradient-card: linear-gradient(145deg, hsl(20 14% 8%), hsl(20 14% 6%));
+
+    /* Dark mode shadows */
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --shadow-button: 0 2px 8px hsl(24 100% 60% / 0.4);
+    --shadow-elevated: 0 8px 32px hsl(0 0% 0% / 0.4);
   }
 }
 
@@ -101,5 +143,66 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-background);
+    font-family: "Comic Sans MS", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    min-height: 100vh;
+  }
+
+  /* Child-friendly typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  /* Smooth animations for better UX */
+  * {
+    transition: var(--transition-smooth);
+  }
+
+  /* Custom utilities for gamification elements */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-button {
+    box-shadow: var(--shadow-button);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  /* Bounce animation for interactive elements */
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s infinite;
+  }
+
+  @keyframes bounce-gentle {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+
+  /* Pulse animation for notifications */
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 }
