@@ -36,11 +36,11 @@ const subjects = [
     lightColor: "bg-secondary-light"
   },
   {
-    id: "english",
-    name: "English",
-    icon: BookOpen,
+    id: "gk",
+    name: "General Knowledge",
+    icon: Globe,
     progress: 85,
-    nextTopic: "Grammar Rules",
+    nextTopic: "Indian Geography",
     xp: 1450,
     color: "bg-accent",
     lightColor: "bg-yellow-100"
@@ -48,7 +48,7 @@ const subjects = [
   {
     id: "physics",
     name: "Physics",
-    icon: Globe,
+    icon: BookOpen,
     progress: 40,
     nextTopic: "Motion and Forces",
     xp: 650,
@@ -63,18 +63,18 @@ const achievements = [
   { name: "Problem Solver", description: "Solve 50 challenging problems", icon: "🧩" }
 ];
 
-export default function Dashboard({ 
-  playerName, 
-  playerClass, 
-  totalXP, 
-  currentLevel, 
+export default function Dashboard({
+  playerName,
+  playerClass,
+  totalXP,
+  currentLevel,
   learningStreak,
-  onSubjectSelect 
+  onSubjectSelect
 }: DashboardProps) {
   return (
     <div className="min-h-screen space-y-6">
       {/* Hero Section */}
-      <div 
+      <div
         className="relative min-h-[60vh] flex items-center justify-center bg-cover bg-center bg-no-repeat rounded-b-3xl overflow-hidden"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
@@ -103,18 +103,18 @@ export default function Dashboard({
             <div className="text-2xl font-bold text-xp">{totalXP.toLocaleString()}</div>
             <div className="text-sm text-muted-foreground">Total XP</div>
           </Card>
-          
+
           <Card className="gradient-card shadow-card p-4 text-center">
             <div className="text-2xl font-bold text-success">24/45</div>
             <div className="text-sm text-muted-foreground">Lessons Completed</div>
           </Card>
-          
+
           <Card className="gradient-card shadow-card p-4 text-center">
             <Trophy className="h-8 w-8 text-level mx-auto mb-2" />
             <div className="text-2xl font-bold text-level">Level {currentLevel}</div>
             <div className="text-sm text-muted-foreground">Current Level</div>
           </Card>
-          
+
           <Card className="gradient-card shadow-card p-4 text-center">
             <Flame className="h-8 w-8 text-streak mx-auto mb-2" />
             <div className="text-2xl font-bold text-streak">{learningStreak} Days</div>
@@ -129,8 +129,8 @@ export default function Dashboard({
             {subjects.map((subject) => {
               const Icon = subject.icon;
               return (
-                <Card 
-                  key={subject.id} 
+                <Card
+                  key={subject.id}
                   className="gradient-card shadow-card p-6 hover:shadow-elevated cursor-pointer transition-all duration-300 hover:scale-105"
                   onClick={() => onSubjectSelect(subject.id)}
                 >
@@ -151,16 +151,16 @@ export default function Dashboard({
                       </Badge>
                     </div>
                   </div>
-                  
+
                   {/* Progress Bar */}
                   <div className="w-full bg-muted rounded-full h-2">
-                    <div 
+                    <div
                       className={`${subject.color} h-2 rounded-full transition-all duration-500`}
                       style={{ width: `${subject.progress}%` }}
                     ></div>
                   </div>
-                  
-                  <Button 
+
+                  <Button
                     className="w-full mt-4"
                     variant="hero"
                     size="lg"
@@ -181,7 +181,7 @@ export default function Dashboard({
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {achievements.map((achievement, index) => (
-              <div 
+              <div
                 key={index}
                 className="text-center p-4 rounded-xl bg-success/10 border border-success/20"
               >
@@ -202,19 +202,19 @@ export default function Dashboard({
             Learn while playing! Answer questions to grow your snake.
           </p>
           <div className="flex gap-2 justify-center flex-wrap">
-            <Button 
+            <Button
               onClick={() => onSubjectSelect('snake-math')}
               variant="hero"
               size="lg"
             >
               🔢 Math Snake
             </Button>
-            <Button 
-              onClick={() => onSubjectSelect('snake-english')}
+            <Button
+              onClick={() => onSubjectSelect('snake-gk')}
               variant="success"
               size="lg"
             >
-              📚 English Snake
+              🌍 GK Snake
             </Button>
           </div>
         </Card>
